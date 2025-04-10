@@ -10,7 +10,7 @@
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="nav navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link text-white" href="#home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="#led">LED</a>
@@ -209,7 +208,7 @@
               </div>
         </section>
         
-        <footer class="text-light pt-4 pb-3 mt-auto" style="background-color: #047857;">
+        <footer class="text-light pt-4 pb-3 mt-auto" style="background-color: #7db27f;">
           <div class="container">
             <div class="row">
         
@@ -317,7 +316,7 @@
         status.style.opacity = '1';
         statusText.textContent = 'ON';
       }else{
-        status.style.opacity = '0.2';
+        status.style.opacity = '0.5';
         statusText.textContent = 'OFF';
       }
 
@@ -347,8 +346,8 @@
         //ketika data tidak kosong maka perintah ini dijalankan
         const data = snapshot.val();
         let timestamp =  new Date().toLocaleTimeString();
-        temperature = data.t;
-        humidity = data.h;
+        temperature = Math.round(data.t);
+        humidity = Math.round(data.h);
         console.log("Temperature update", temperature);
         console.log("Kelembapan update", humidity);
         updateWeatherCondition(temperature, humidity);
